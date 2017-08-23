@@ -20,7 +20,7 @@ alias EctoIt.Repo
 import Ecto.Query
 
 defmodule Weather do # is for later at now
-  use Ecto.Model
+  use Ecto.Schema
 
   schema "weather" do
     field :city
@@ -42,7 +42,7 @@ Lets redefine the same model in a shell and migrate it
 ```elixir
 
 defmodule Weather do # is for later at now
-  use Ecto.Model
+  use Ecto.Schema
 
   schema "weather" do
     field :city
@@ -63,7 +63,7 @@ Lets use references
 ```elixir
 
 defmodule Post do
-  use Ecto.Model
+  use Ecto.Schema
 
   schema "posts" do
     field :title, :string
@@ -74,7 +74,7 @@ defmodule Post do
 end
 
 defmodule Comment do
-  use Ecto.Model
+  use Ecto.Schema
 
   schema "comments" do
     field :text, :string
@@ -91,7 +91,7 @@ Ecto.Migration.Auto.migrate(Repo, Comment)
 
 ```elixir
 defmodule Taggable do
-  use Ecto.Model
+  use Ecto.Schema
 
   schema "this is not a valid schema name and it will never be used" do
     field :tag_id, :integer
@@ -99,7 +99,7 @@ defmodule Taggable do
 end
 
 defmodule MyModel do
-  use Ecto.Model
+  use Ecto.Schema
   schema "my_model" do
     field :a, :string
     has_many :my_model_tags, {"my_model_tags", Taggable}, [foreign_key: :tag_id]
@@ -123,7 +123,7 @@ Indexes
 
 ```elixir
 defmodule Weather do # is for later at now
-  use Ecto.Model
+  use Ecto.Schema
   use Ecto.Migration.Auto.Index
 
   index(:city, unique: true)
@@ -141,7 +141,7 @@ If you do not want to use DSL for defining indexes, macro index doing no more, a
 
 ```elixir
 defmodule Weather do # is for later at now
-  use Ecto.Model
+  use Ecto.Schema
 
   schema "weather" do
     field :city
@@ -162,7 +162,7 @@ Extra attribute options
 
 ```elixir
 defmodule Weather do # is for later at now
-  use Ecto.Model
+  use Ecto.Schema
   use Ecto.Migration.Auto.Index
 
   schema "weather" do
@@ -184,7 +184,7 @@ If the same model used by different sources, it is possible to define callback f
 
 ```elixir
 defmodule Weather do # is for later at now
-  use Ecto.Model
+  use Ecto.Schema
   use Ecto.Migration.Auto.Index
 
   schema "weather" do

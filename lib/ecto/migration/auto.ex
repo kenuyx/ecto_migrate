@@ -21,7 +21,7 @@ defmodule Ecto.Migration.Auto do
       import Ecto.Query
 
       defmodule Weather do # is for later at now
-        use Ecto.Model
+        use Ecto.Schema
 
         schema "weather" do
           field :city

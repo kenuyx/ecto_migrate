@@ -7,14 +7,14 @@ defmodule EctoMigrate.Mixfile do
     [app: :ecto_migrate,
      version: @version,
 
-     description: description,
-     package: package,
+     description: description(),
+     package: package(),
 
      # Docs
      name: "Ecto Auto Migrate",
      docs: [source_ref: "v#{@version}",
             source_url: @github],
-     deps: deps]
+     deps: deps()]
   end
 
   defp description do
@@ -49,7 +49,7 @@ defmodule EctoMigrate.Mixfile do
   defp deps do
     [{:postgrex, ">= 0.0.0", optional: true},
      {:mariaex, ">= 0.0.0", optional: true},
-     {:ecto, "~> 1.0.0"},
+     {:ecto, "~> 2.1"},
      {:ecto_it, "~> 0.2.0", optional: true}]
   end
 end
